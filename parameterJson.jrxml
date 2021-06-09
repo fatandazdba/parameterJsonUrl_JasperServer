@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 7.9.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="parameterJson" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5345a1b1-6759-4c24-b582-a55d299b0b35">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="idP" class="java.lang.String" evaluationTime="Early">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="id"/>
+	</parameter>
+	<parameter name="nameP" class="java.lang.String" evaluationTime="Early">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="name"/>
+	</parameter>
+	<parameter name="amountP" class="java.lang.String" evaluationTime="Early">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="amount"/>
+	</parameter>
+	<parameter name="collegeCareerP" class="java.lang.String" evaluationTime="Early">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="collegeCareer"/>
+	</parameter>
+	<parameter name="direccionP" class="java.lang.String" evaluationTime="Early">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="direccion"/>
+	</parameter>
+	<parameter name="codigoPostalP" class="java.lang.String" evaluationTime="Early">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="codigoPostal"/>
+	</parameter>
+	<parameter name="telefonoP" class="java.lang.String" evaluationTime="Early">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="telefono"/>
+	</parameter>
+	<parameter name="jsonString" class="java.lang.String">
+		<defaultValueExpression><![CDATA["{\n" +
+                "    \"order\":\"000000\",\n" +
+                "    \"valueorder\":\"270.00\",\n" +
+                "    \"payment\":\"CRED CARD 2X\",\n" +
+                "    \"date\":\"2017-03-17\",\n" +
+                "    \"nextpayments\": [\n" +
+                "        {\n" +
+                "            \"date\": \"17/03/2017\",\n" +
+                "            \"value\": \"R$\\u00a0135,00\" \n" +
+                "        }, \n" +
+                "        {\n" +
+                "            \"date\": \"02/05/2017\",\n" +
+                "            \"value\": \"R$\\u00a0135,00\" \n" +
+                "        }\n" +
+                "        \n" +
+                "    ]\n" +
+                "}"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="JSON_INPUT_STREAM" class="java.io.InputStream">
+		<defaultValueExpression><![CDATA[new java.io.ByteArrayInputStream($P{jsonString}.getBytes("UTF-8"))]]></defaultValueExpression>
+	</parameter>
+	<queryString language="jsonql">
+		<![CDATA[nextpayments.*]]>
+	</queryString>
+	<field name="nextPaymentDate" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="date"/>
+		<fieldDescription><![CDATA[next payment date]]></fieldDescription>
+	</field>
+	<field name="nextPaymentValue" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="value"/>
+		<fieldDescription><![CDATA[next payment value]]></fieldDescription>
+	</field>
+	<field name="order" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="^{2}.order"/>
+		<fieldDescription><![CDATA[order]]></fieldDescription>
+	</field>
+	<field name="valueorder" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="^{2}.valueorder"/>
+		<fieldDescription><![CDATA[valueorder]]></fieldDescription>
+	</field>
+	<field name="payment" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="^{2}.payment"/>
+		<fieldDescription><![CDATA[payment]]></fieldDescription>
+	</field>
+	<field name="orderDate" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="^{2}.date"/>
+		<fieldDescription><![CDATA[order date]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="115" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="90" width="260" height="25" uuid="8cce13e3-98db-4bba-8f45-ddafdeab0ca2">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Información del alumno:]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement x="0" y="0" width="79" height="78" uuid="ac07c0b3-3141-4d30-9d2c-9e4cb15d0195">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["repo:upm_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="84" y="0" width="436" height="25" uuid="6a4ca305-20c4-4271-b175-4c77e1a87281">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD POLITÉCNICA DE MADRID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="50" width="80" height="20" uuid="96509da1-c452-465b-a1f2-a94a1849cd91">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[# Documento:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="476" y="50" width="60" height="20" uuid="a4a133c6-e03a-4e58-a231-e7b0bf92ce05"/>
+				<textFieldExpression><![CDATA["INV0001"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="437" y="30" width="84" height="20" uuid="6192dfe1-12e2-4185-a420-ac1de166398f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="30" width="36" height="20" uuid="f909fddf-83ef-40fe-bf34-ec86fdbbacef"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="55" width="45" height="15" uuid="da0fe89c-432a-4396-8247-24628b9eb9d5"/>
+				<text><![CDATA[Teléfono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="40" width="74" height="15" uuid="cb9c0571-c4f8-4f62-b105-2cea3314660f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Código postal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="25" width="55" height="15" uuid="99bbe87c-c924-4a3f-a196-8a5183cf0860"/>
+				<text><![CDATA[Direccion: ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="80" width="556" height="1" uuid="813fbc0e-ef85-4323-ae9f-7ae776a817fc">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="150" y="24" width="230" height="15" uuid="e661a0c0-d793-49b8-9d1f-48e5da606e3b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{direccionP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="41" width="211" height="15" uuid="a4298931-9c03-4571-963f-9fcfbdb7c419">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{codigoPostalP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="55" width="240" height="15" uuid="0a6c1b22-bd6a-49fe-96ee-9e0b578d6918">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{telefonoP}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="230" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="17" width="180" height="30" uuid="2b79ac86-6ab1-429b-84fa-f38368ffa38c"/>
+				<textFieldExpression><![CDATA[$P{idP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="100" height="30" uuid="0cb3460d-f0f2-4ac7-809d-ac278eecaf84"/>
+				<text><![CDATA[Collage career:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="17" width="100" height="30" uuid="0d733476-7534-47b4-bab8-c51186d04fb2"/>
+				<text><![CDATA[Id:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="48" width="100" height="30" uuid="400e0be6-4eba-4d5b-8813-efbb1a1fe388"/>
+				<text><![CDATA[Name: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="48" width="180" height="30" uuid="60e9b4fe-0b66-483d-b0bd-10e9e63958a6"/>
+				<textFieldExpression><![CDATA[$P{nameP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="80" width="456" height="39" uuid="b5d03626-9efd-4b41-acc7-c440720c66a6"/>
+				<textFieldExpression><![CDATA[$P{collegeCareerP}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="220" width="556" height="1" uuid="fd756520-8213-4e1e-9b70-5f29fd30db36">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="140" width="100" height="30" uuid="6918977b-2608-4375-820d-406f5a396872"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="140" width="436" height="60" uuid="db4b0002-7659-49de-887e-c639ceecb555"/>
+				<textFieldExpression><![CDATA[$P{jsonString}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="80" height="30" backcolor="#BEFADB" uuid="5258fbf3-575f-486e-bede-26e83ec791a5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b5c10f8-8390-4a95-a707-2f267d64349a"/>
+				</reportElement>
+				<text><![CDATA[order]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="0" width="90" height="30" backcolor="#BEFADB" uuid="464a7d52-1801-4d67-9cda-c4b2d2e4526b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a223b8db-9803-4257-baf6-cfbc758b6950"/>
+				</reportElement>
+				<text><![CDATA[valueorder]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="170" y="0" width="100" height="30" backcolor="#BEFADB" uuid="c179e19a-efa9-4d27-947c-84b14d2639aa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="166b5682-4aab-4c8a-b7d3-4e7b4be84db6"/>
+				</reportElement>
+				<text><![CDATA[payment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="270" y="0" width="80" height="30" backcolor="#BEFADB" uuid="cb1829b9-c782-42a7-a3f4-0126db20cc6a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<text><![CDATA[order date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="0" width="100" height="30" backcolor="#BEFADB" uuid="628c20fa-bbc9-43ea-8aa4-1486bf518e38">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<text><![CDATA[next payment date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="0" width="100" height="30" backcolor="#BEFADB" uuid="2b4c49a7-1984-48d4-aa92-9a6d859feda8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<text><![CDATA[next payment value]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="30" uuid="27c8ae6d-def5-4abd-b691-d350fd92c719">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b5c10f8-8390-4a95-a707-2f267d64349a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{order}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="90" height="30" uuid="94342e9b-d545-441c-9350-9179e4cc2530">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a223b8db-9803-4257-baf6-cfbc758b6950"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valueorder}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="100" height="30" uuid="8e5286de-d8ac-43a5-bc70-936d3b59db7d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="166b5682-4aab-4c8a-b7d3-4e7b4be84db6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{payment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="80" height="30" uuid="835948f8-45ba-4c4a-8306-c6ad70214ba0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{orderDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="100" height="30" uuid="7bd69460-736a-4f02-b7c6-7aea7f6ae3e4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cdbb795a-808b-4e99-8f21-6666b54aa457"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nextPaymentDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="30" uuid="770eaeb3-2c1e-4741-afee-4dc5b6c13058">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dfbc2e2f-40e6-4809-b2fe-aa7033dbd0ea"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nextPaymentValue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
