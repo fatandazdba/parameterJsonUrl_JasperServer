@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 7.9.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Unrelated_JSON_arrays" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4677a5a8-7a18-4f07-a8c0-f9a0e7f27967">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<subDataset name="NextPaymentDateDataset" uuid="5337e69f-16e4-447d-a9e7-fbe6d25a479f">
+		<field name="item" class="java.lang.String">
+			<property name="net.sf.jasperreports.jsonql.field.expression" value="[0]"/>
+			<fieldDescription><![CDATA[The Item in the Dates Array]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="NextPaymentValueDataset" uuid="5337e69f-16e4-447d-a9e7-fbe6d25a479f">
+		<field name="item" class="java.lang.String">
+			<property name="net.sf.jasperreports.jsonql.field.expression" value="[0]"/>
+			<fieldDescription><![CDATA[The Item in the Values Array]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="jsonString" class="java.lang.String">
+		<defaultValueExpression><![CDATA["{\n" +
+                "    \"order\": \"000000\",\n" +
+                "    \"valueorder\": \"270.00\",\n" +
+                "    \"payment\": \"CRED CARD 2X\",\n" +
+                "    \"date\": \"2017-03-17\",\n" +
+                "    \"nextpayment\": [\n" +
+                "        \"17/03/2017\",\n" +
+                "        \"02/05/2017\"\n" +
+                "    ],\n" +
+                "    \"valuenextpayment\": [\n" +
+                "        \"R$\\u00a0135,00\",\n" +
+                "        \"R$\\u00a0135,00\"\n" +
+                "    ]\n" +
+                "}"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="jsonStringInput" class="java.lang.String">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="jsonString"/>
+	</parameter>
+	<parameter name="JSON_INPUT_STREAM" class="java.io.InputStream">
+		<defaultValueExpression><![CDATA[new java.io.ByteArrayInputStream($P{jsonStringInput}.getBytes("UTF-8"))]]></defaultValueExpression>
+	</parameter>
+	<queryString language="jsonql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="order" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="order"/>
+		<fieldDescription><![CDATA[order]]></fieldDescription>
+	</field>
+	<field name="valueorder" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="valueorder"/>
+		<fieldDescription><![CDATA[valueorder]]></fieldDescription>
+	</field>
+	<field name="payment" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="payment"/>
+		<fieldDescription><![CDATA[payment]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="date"/>
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="50" y="27" width="472" height="25" uuid="697f6500-5a90-4cb4-9b9e-f64f8d6c78b7">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unrelated JSON arrays]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="80" height="30" backcolor="#BEFADB" uuid="5258fbf3-575f-486e-bede-26e83ec791a5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b5c10f8-8390-4a95-a707-2f267d64349a"/>
+				</reportElement>
+				<text><![CDATA[order]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="0" width="90" height="30" backcolor="#BEFADB" uuid="464a7d52-1801-4d67-9cda-c4b2d2e4526b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a223b8db-9803-4257-baf6-cfbc758b6950"/>
+				</reportElement>
+				<text><![CDATA[valueorder]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="170" y="0" width="100" height="30" backcolor="#BEFADB" uuid="c179e19a-efa9-4d27-947c-84b14d2639aa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="166b5682-4aab-4c8a-b7d3-4e7b4be84db6"/>
+				</reportElement>
+				<text><![CDATA[payment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="270" y="0" width="80" height="30" backcolor="#BEFADB" uuid="cb1829b9-c782-42a7-a3f4-0126db20cc6a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<text><![CDATA[order date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="0" width="100" height="30" backcolor="#BEFADB" uuid="628c20fa-bbc9-43ea-8aa4-1486bf518e38">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<text><![CDATA[next payment date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="0" width="100" height="30" backcolor="#BEFADB" uuid="2b4c49a7-1984-48d4-aa92-9a6d859feda8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<text><![CDATA[next payment value]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="30" uuid="27c8ae6d-def5-4abd-b691-d350fd92c719">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b5c10f8-8390-4a95-a707-2f267d64349a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{order}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="90" height="30" uuid="94342e9b-d545-441c-9350-9179e4cc2530">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a223b8db-9803-4257-baf6-cfbc758b6950"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valueorder}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="100" height="30" uuid="8e5286de-d8ac-43a5-bc70-936d3b59db7d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="166b5682-4aab-4c8a-b7d3-4e7b4be84db6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{payment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="80" height="30" uuid="835948f8-45ba-4c4a-8306-c6ad70214ba0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="350" y="0" width="100" height="30" uuid="89f3fd2c-4be0-466c-9b22-c749e8b69d42"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="NextPaymentDateDataset" uuid="964313c4-37e8-408f-adca-e6c436a76d4b">
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonQLDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("nextpayment")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="100">
+						<textField>
+							<reportElement x="0" y="0" width="100" height="30" uuid="143efbb1-c95a-49bf-adff-a618b5518c75"/>
+							<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="450" y="0" width="100" height="30" uuid="d569f091-7eac-44db-8e12-d83837b0ddae"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="NextPaymentValueDataset" uuid="7e2aa9c7-6d1f-4722-8f78-1f52da462473">
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonQLDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("valuenextpayment")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="100">
+						<textField>
+							<reportElement x="0" y="0" width="100" height="30" uuid="a71eae3c-0bb7-4286-a80c-714a59d9f869"/>
+							<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
