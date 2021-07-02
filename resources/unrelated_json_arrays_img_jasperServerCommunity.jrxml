@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 7.9.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report1" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="16882c94-641b-47b6-bd2f-675edbc1f15a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<property name="ireport.jasperserver.url" value="http://10.30.3.75:8080/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/parameterUrl_JasperServerC2/parameterUrl_JasperServerC2_files/Main Jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/parameterUrl_JasperServerC2/parameterUrl_JasperServerC2"/>
+	<subDataset name="NextPaymentDateDataset" uuid="5337e69f-16e4-447d-a9e7-fbe6d25a479f">
+		<field name="item" class="java.lang.String">
+			<property name="net.sf.jasperreports.jsonql.field.expression" value="[0]"/>
+			<fieldDescription><![CDATA[The Item in the Dates Array]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="NextPaymentValueDataset" uuid="5337e69f-16e4-447d-a9e7-fbe6d25a479f">
+		<field name="item" class="java.lang.String">
+			<property name="net.sf.jasperreports.jsonql.field.expression" value="[0]"/>
+			<fieldDescription><![CDATA[The Item in the Values Array]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="jsonStringInput" class="java.lang.String">
+		<property name="net.sf.jasperreports.http.data.url.parameter" value="jsonStringInput"/>
+	</parameter>
+	<parameter name="JSON_INPUT_STREAM" class="java.io.InputStream">
+		<defaultValueExpression><![CDATA[new java.io.ByteArrayInputStream($P{jsonStringInput}.getBytes("UTF-8"))]]></defaultValueExpression>
+	</parameter>
+	<queryString language="jsonql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="order" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="order"/>
+		<fieldDescription><![CDATA[order]]></fieldDescription>
+	</field>
+	<field name="valueorder" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="valueorder"/>
+		<fieldDescription><![CDATA[valueorder]]></fieldDescription>
+	</field>
+	<field name="payment" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="payment"/>
+		<fieldDescription><![CDATA[payment]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="date"/>
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="302" splitType="Stretch">
+			<textField>
+				<reportElement x="47" y="234" width="89" height="30" uuid="cc9afc6d-0e1e-4472-aa89-2c13f8679ba7"/>
+				<textFieldExpression><![CDATA[$F{order}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="234" width="47" height="30" uuid="f54602ba-ad08-46ba-8a65-13d16a3a91ce"/>
+				<text><![CDATA[Order:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="127" width="47" height="30" uuid="8e4464ab-ef67-4712-9350-a8915f6c27ee"/>
+				<text><![CDATA[jsonInput:]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="48" y="127" width="502" height="107" uuid="e4b88530-0232-4785-9329-541480d43af1"/>
+				<textFieldExpression><![CDATA[$P{jsonStringInput}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center">
+				<reportElement x="0" y="0" width="84" height="83" uuid="29f039c7-b6e7-461c-9bab-412274259aa9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["repo:upm_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="84" y="5" width="472" height="25" uuid="dd1d8803-72e0-4937-afe6-a05b41d504bf">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD POLITÉCNICA DE MADRID]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="437" y="35" width="84" height="20" uuid="df35e265-e978-467c-b96a-4b1f152f384c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="35" width="36" height="20" uuid="056e39f1-9738-4a6e-b4b0-04d5a21bf598"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="55" width="80" height="20" uuid="9d977e11-2c07-4d49-87d6-eebef0e46e75">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[# Documento:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="476" y="55" width="60" height="20" uuid="9bbd6280-186c-43cb-bea4-294e0b003852"/>
+				<textFieldExpression><![CDATA["INV0001"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="85" width="556" height="1" uuid="92c7c247-3c0e-4332-ad13-4e2f302abadb">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="95" width="556" height="25" uuid="53831dcb-681d-4a26-9bbc-1b2c2cadc992">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unrelated JSON arrays]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="2" width="80" height="30" backcolor="#BEFADB" uuid="5258fbf3-575f-486e-bede-26e83ec791a5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b5c10f8-8390-4a95-a707-2f267d64349a"/>
+				</reportElement>
+				<text><![CDATA[order]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="2" width="90" height="30" backcolor="#BEFADB" uuid="464a7d52-1801-4d67-9cda-c4b2d2e4526b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a223b8db-9803-4257-baf6-cfbc758b6950"/>
+				</reportElement>
+				<text><![CDATA[valueorder]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="170" y="2" width="102" height="30" backcolor="#BEFADB" uuid="c179e19a-efa9-4d27-947c-84b14d2639aa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="166b5682-4aab-4c8a-b7d3-4e7b4be84db6"/>
+				</reportElement>
+				<text><![CDATA[payment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="270" y="2" width="80" height="30" backcolor="#BEFADB" uuid="cb1829b9-c782-42a7-a3f4-0126db20cc6a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<text><![CDATA[order date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="2" width="100" height="30" backcolor="#BEFADB" uuid="628c20fa-bbc9-43ea-8aa4-1486bf518e38">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+				</reportElement>
+				<text><![CDATA[next payment date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="2" width="100" height="30" backcolor="#BEFADB" uuid="2b4c49a7-1984-48d4-aa92-9a6d859feda8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[next payment value]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="86" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="2" width="80" height="25" uuid="27c8ae6d-def5-4abd-b691-d350fd92c719">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b5c10f8-8390-4a95-a707-2f267d64349a"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{order}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2" width="90" height="25" uuid="94342e9b-d545-441c-9350-9179e4cc2530">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a223b8db-9803-4257-baf6-cfbc758b6950"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valueorder}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="2" width="100" height="25" uuid="8e5286de-d8ac-43a5-bc70-936d3b59db7d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="166b5682-4aab-4c8a-b7d3-4e7b4be84db6"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{payment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="2" width="80" height="25" uuid="835948f8-45ba-4c4a-8306-c6ad70214ba0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7a27377-1e06-43c4-afab-840efea597f3"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="350" y="2" width="100" height="25" uuid="89f3fd2c-4be0-466c-9b22-c749e8b69d42">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="NextPaymentDateDataset" uuid="964313c4-37e8-408f-adca-e6c436a76d4b">
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonQLDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("nextpayment")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="25" width="100">
+						<textField>
+							<reportElement x="0" y="0" width="100" height="25" uuid="143efbb1-c95a-49bf-adff-a618b5518c75"/>
+							<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="450" y="2" width="100" height="25" uuid="d569f091-7eac-44db-8e12-d83837b0ddae">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="NextPaymentValueDataset" uuid="7e2aa9c7-6d1f-4722-8f78-1f52da462473">
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonQLDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("valuenextpayment")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="25" width="100">
+						<textField>
+							<reportElement x="0" y="0" width="100" height="25" uuid="a71eae3c-0bb7-4286-a80c-714a59d9f869"/>
+							<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="125" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="65" width="556" height="60" backcolor="#2680C6" uuid="fcc4c84b-f026-471e-afaa-416e901398e4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="-1" y="10" width="556" height="54" uuid="f0c9e96e-5067-49ad-b2d1-68c46073199e"/>
+				<textFieldExpression><![CDATA["Los datos personales aquí recogidos serán tratados por la Universidad Politécnica de Madrid para la gestión administrativa, económica yacadémica, y no serán cedidos salvo en los casos previstos por la ley. El órgano responsable del tratamiento de datos personales es laSecretaría General, ante quien se podrán ejercer los derechos de acceso, cancelación y oposición, mediante escrito (c/Ramiro de Maeztunº7, 28040 Madrid), o por correo electrónico (secretaria.sgeneral@upm.es)."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="67" width="555" height="24" forecolor="#FFFFFF" uuid="b99cf32a-9dcb-45b4-9284-75bdcedc2e06">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD POLITÉCNICA DE MADRID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="95" width="554" height="30" forecolor="#FFFFFF" uuid="7c120e07-c814-4a55-b474-a9c919d38086"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[C/ Ramiro de Maeztu 7, 28040. Madrid, tlf: 913 36 60 00]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="125">
+			<rectangle>
+				<reportElement x="0" y="65" width="556" height="60" backcolor="#2680C6" uuid="f840ddf9-c9e3-4951-9acf-4bbabda56249">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="-1" y="10" width="556" height="54" uuid="e3f03f82-b44b-4073-81ce-04a359794d3f"/>
+				<textFieldExpression><![CDATA["Los datos personales aquí recogidos serán tratados por la Universidad Politécnica de Madrid para la gestión administrativa, económica yacadémica, y no serán cedidos salvo en los casos previstos por la ley. El órgano responsable del tratamiento de datos personales es laSecretaría General, ante quien se podrán ejercer los derechos de acceso, cancelación y oposición, mediante escrito (c/Ramiro de Maeztunº7, 28040 Madrid), o por correo electrónico (secretaria.sgeneral@upm.es)."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="67" width="555" height="24" forecolor="#FFFFFF" uuid="17a57fc2-5ea5-453c-a36d-4ec0ab38fde0">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD POLITÉCNICA DE MADRID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="95" width="554" height="30" forecolor="#FFFFFF" uuid="4f4ff140-e1c1-4980-8110-3026e0329b3e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[C/ Ramiro de Maeztu 7, 28040. Madrid, tlf: 913 36 60 00]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
